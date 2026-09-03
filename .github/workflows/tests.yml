@@ -1,0 +1,25 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v7
+      # gtm, the grammar test tool, built for Apple Silicon by the application's
+      # own workflow and published on its gtm prerelease.
+      - name: Fetch gtm
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download gtm -R textmate3/textmate --pattern gtm --output gtm
+          chmod +x gtm
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "4.0"
+      - run: ruby Support/tests/run_tests.rb
+        env:
+          GTM: ${{ github.workspace }}/gtm

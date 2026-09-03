@@ -1,3 +1,3 @@
-<keyword.declaration.scala>def</keyword.declaration.scala> <entity.name.function>method</entity.name.function>(<variable.parameter>arg</variable.parameter> :<entity.name.type>String</entity.name.type>): <entity.name.type>String</entity.name.type> = {
+<keyword.control.def.scala>def</keyword.control.def.scala> <entity.name.function.declaration.scala>method</entity.name.function.declaration.scala><meta.bracket.scala>(</meta.bracket.scala>arg <keyword.operator.scala>:</keyword.operator.scala><storage.type.scala>String</storage.type.scala><meta.bracket.scala>)</meta.bracket.scala><keyword.operator.scala>:</keyword.operator.scala> <storage.type.scala>String</storage.type.scala> <keyword.operator.comparison.scala>=</keyword.operator.comparison.scala> <meta.bracket.scala>{</meta.bracket.scala>
   
-}
+<meta.bracket.scala>}</meta.bracket.scala>
