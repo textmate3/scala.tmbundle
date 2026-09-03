@@ -17,6 +17,9 @@ jobs:
         run: |
           gh release download gtm -R textmate3/textmate --pattern gtm --output gtm
           chmod +x gtm
+      # gtm links Homebrew's capnp libraries at run time, the same ones the
+      # application repository's workflow built it against.
+      - run: brew install capnp
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "4.0"
