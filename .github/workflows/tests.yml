@@ -17,9 +17,10 @@ jobs:
         run: |
           gh release download gtm -R textmate3/textmate --pattern gtm --output gtm
           chmod +x gtm
-      # gtm links Homebrew's capnp libraries at run time, the same ones the
-      # application repository's workflow built it against.
-      - run: brew install capnp
+      # gtm links Homebrew libraries at run time, the ones the application's own
+      # workflow built it against, so the application's Brewfile is the list to
+      # follow: when it changes, this stays in step without an edit here.
+      - run: curl -fsSL https://raw.githubusercontent.com/textmate3/textmate/main/Brewfile | brew bundle --file=-
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "4.0"
