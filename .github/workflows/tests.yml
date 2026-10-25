@@ -19,7 +19,7 @@ jobs:
           chmod +x gtm
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "4.0"
+          ruby-version: .ruby-version
       - run: ruby Support/tests/run_tests.rb
         env:
           GTM: ${{ github.workspace }}/gtm
